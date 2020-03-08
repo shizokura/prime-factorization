@@ -4,10 +4,10 @@ export default class Factor
     {
         this.value = value;
         this.factors = null;
-        this.setFactors();
+        this.generateFactors();
     }
 
-    setFactors()
+    generateFactors()
     {
         if (!this.value) return;
         else if (this.value === 1) return;
