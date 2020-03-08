@@ -30,6 +30,11 @@ export default
 </script>
 
 <style lang="scss">
+.tree-main
+{
+	padding-bottom: 20px;
+}
+
 /*Now the CSS*/
 * {margin: 0; padding: 0;}
 

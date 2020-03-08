@@ -1,5 +1,6 @@
 import { Notify } from 'quasar';
 import Factor from './Factor';
+import { EventBus } from '../event-bus';
 
 export default class Tree
 {
@@ -24,5 +25,11 @@ export default class Tree
 
         this.factor = new Factor(this.value);
         this.submitted = true;
+        EventBus.$emit("submitted", true);
+    }
+
+    back()
+    {
+        this.submitted = false;
     }
 }

@@ -13,6 +13,9 @@ import FormMain from '../components/FormMain';
 // Classes
 import Tree from '../classes/Tree';
 
+// Utilities
+import { EventBus } from '../event-bus';
+
 export default 
 {
   name: 'PageIndex',
@@ -20,6 +23,13 @@ export default
   data: () => 
   ({
     tree: new Tree()
-  })
+  }),
+  created()
+  {
+    EventBus.$on('back', () => 
+    {
+      this.tree.back();
+    });
+  }
 }
 </script>

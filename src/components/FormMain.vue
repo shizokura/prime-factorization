@@ -1,6 +1,6 @@
 <template>
-    <form @submit.prevent="submit()" class="form-main">
-        <q-input v-model="tree.value" label="Enter a number" />
+    <form @submit.prevent="tree.submit()" class="form-main">
+        <q-input v-model="tree.value" type="number" label="Enter a number" />
         <q-btn type="submit" style="width: 100%; margin-top: 15px;" color="primary" label="Submit" />
     </form>
 </template>
@@ -12,13 +12,6 @@ export default
     props:
     {
         tree: Object
-    },
-    methods:
-    {
-        submit()
-        {
-            this.tree.submit();
-        }
     }
 }
 </script>
@@ -26,6 +19,9 @@ export default
 <style lang="scss">
 .form-main
 {
-    width: 500px;
+    width: 100%;
+    max-width: 400px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 </style>
