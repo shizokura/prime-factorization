@@ -1,6 +1,6 @@
 {
   "appId": "com.math.prime.factorization",
-  "appName": "Prime Factorization (Math Task Performance)",
+  "appName": "Math TP (Prime Factorization)",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www"

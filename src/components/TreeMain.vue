@@ -21,10 +21,6 @@ export default
     props:
     {
         tree: Object
-    },
-    created()
-    {
-        console.log(this.tree);
     }
 }
 </script>
@@ -33,6 +29,8 @@ export default
 .tree-main
 {
 	padding-bottom: 20px;
+	width: max-content;
+	overflow: auto;
 }
 
 /*Now the CSS*/
