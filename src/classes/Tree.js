@@ -9,6 +9,12 @@ export default class Tree
         this.value = null;
         this.submitted = false;
         this.factor = null;
+        this.prime_numbers = [];
+
+        EventBus.$on('prime-number', (number) =>
+        {
+            this.prime_numbers.push(number);
+        });
     }
 
     submit()
@@ -23,6 +29,7 @@ export default class Tree
             return;
         }
 
+        this.prime_numbers = [];
         this.factor = new Factor(this.value);
         this.submitted = true;
         EventBus.$emit("submitted", true);

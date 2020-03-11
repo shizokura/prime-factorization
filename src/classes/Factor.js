@@ -1,3 +1,6 @@
+import SWorker from 'simple-web-worker';
+import { EventBus } from '../event-bus';
+
 export default class Factor
 {
     constructor(value)
@@ -7,24 +10,46 @@ export default class Factor
         this.generateFactors();
     }
 
-    generateFactors()
+    async generateFactors()
     {
-        if (!this.value) return;
-        else if (this.value === 1) return;
-        else if (this.value === 2) return;
-
-        for (let divisor = 2; divisor < this.value; divisor++)
+        if (!this.value)
         {
-            if (this.value % divisor === 0)
-            {
-                this.factors = 
-                [
-                    new Factor(divisor),
-                    new Factor(this.value / divisor)
-                ];
+            EventBus.$emit('prime-number', this.value);
+            return;
+        }
+        else if (this.value === 1) 
+        {
+            EventBus.$emit('prime-number', this.value);
+            return;
+        }
+        else if (this.value === 2)
+        {
+            EventBus.$emit('prime-number', this.value);
+            return;
+        }
 
-                return;
+        let factors = await SWorker.run((value) => 
+        {
+            for (let divisor = 2; divisor < value; divisor++)
+            {
+                if (value % divisor === 0)
+                {
+                    return [
+                        divisor,
+                        value / divisor
+                    ];
+                }
             }
+        }, [ this.value ]);
+        
+        if (factors)
+        {
+            let [ first, second ] = factors;
+            this.factors = [ new Factor(first), new Factor(second) ];
+        }
+        else
+        {
+            EventBus.$emit('prime-number', this.value);
         }
     }
 }

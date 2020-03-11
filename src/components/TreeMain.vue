@@ -1,15 +1,35 @@
 <template>
-    <div class="tree-main">
-        <div class="tree">
-            <ul>
-                <li>
-                    <a href="#">{{ tree.factor.value }}</a>
-                    <TreeItem v-if="tree.factor" :factors="tree.factor.factors" />
-                </li>
-            </ul>
-        </div>
-    </div>
+    <div>
+		<div class="tree-main">
+			<div class="tree">
+				<ul>
+					<li>
+						<a href="#">{{ tree.factor.value }}</a>
+						<TreeItem v-if="tree.factor" :factors="tree.factor.factors" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="prime-numbers">
+			<strong style="text-transform: uppercase;">Prime Numbers :</strong> {{ tree.prime_numbers }}
+		</div>
+	</div>
 </template>
+
+<style lang="scss">
+.prime-numbers
+{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #1976D2;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	padding: 7.5px 15px;
+}
+</style>
 
 <script>
 import TreeItem from './TreeItem';
@@ -28,7 +48,7 @@ export default
 <style lang="scss">
 .tree-main
 {
-	padding-bottom: 20px;
+	padding-bottom: 56px;
 	width: max-content;
 	overflow: auto;
 }
