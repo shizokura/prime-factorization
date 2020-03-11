@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="prime-numbers">
-			<strong style="text-transform: uppercase;">Prime Numbers :</strong> {{ tree.prime_numbers }}
+			<div style="width: max-content; margin: auto;"><strong style="text-transform: uppercase;">Prime Numbers :</strong> {{ tree.prime_numbers }}</div>
 		</div>
 	</div>
 </template>
@@ -28,6 +28,7 @@
 	font-size: 14px;
 	text-align: center;
 	padding: 7.5px 15px;
+	overflow: auto;
 }
 </style>
 
