@@ -12,6 +12,7 @@ export default
     created()
     {
         return this.$router.push('/index');
+        //test
     }
 }
 </script>
